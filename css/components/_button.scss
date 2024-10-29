@@ -1,0 +1,14 @@
+.button-style{
+    text-decoration: none;
+    border-radius: 7px;
+    font-family: Helvetica;
+    font-weight: bold;
+    color: black;
+    background-color: rgb(255, 179, 0);
+    text-align: center;
+    padding: 1% 3%;
+    &:hover{
+        background-color: aliceblue;
+    }
+    padding: 1ch;
+}

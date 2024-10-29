@@ -1,0 +1,130 @@
+#navbar {
+  position: fixed;
+  margin: 0;
+  width: 100%;
+  font-family: Helvetica;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+
+  a {
+    #logo {
+      margin: 4px;
+      max-width: 130px;
+    }
+  }
+
+  .hammenu {
+    display: none;
+    border: 1px solid rgb(218, 215, 215);
+    border-radius: 1px;
+    cursor: pointer;
+
+    img {
+      margin: 1px;
+      vertical-align: middle;
+    }
+  }
+}
+
+#navbar,
+.nav-menu,
+.nav-menu-item {
+  display: flex;
+}
+
+.nav-menu-item {
+  list-style: none;
+  padding: 4% 1rem;
+
+  div {
+    img {
+      vertical-align: text-top;
+      margin-right: 2px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(195, 192, 192);
+  }
+}
+
+/* Menu de hamburguesa */
+#hammenu-button {
+  display: none;
+}
+
+.hammenu-icon {
+  width: 25px;
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%)
+    contrast(100%);
+  transition: background-color 0.3s ease;
+}
+
+/* Acciones */
+.nav-menu-item {
+  a:hover {
+    color: white;
+  }
+}
+
+@media (max-width: 991px) {
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.644);
+    display: none;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 100%;
+    background-color: #333;
+    flex-direction: column;
+    z-index: 1;
+
+    .nav-menu-item {
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid #474747;
+      border-bottom: 1px solid #474747;
+      padding: 1% 0;
+      width: 100%;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 10px 20px;
+        text-decoration: none;
+        margin: 0;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  #navbar {
+    .hammenu {
+      display: initial;
+    }
+  }
+
+  #hammenu-button:checked ~ .nav-menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #hammenu-button:checked + label .hammenu-icon {
+    background-color: rgb(218, 215, 215);
+    filter: drop-shadow(0 0 0px rgba(218, 215, 215, 0.5));
+  }
+}

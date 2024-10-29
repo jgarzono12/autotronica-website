@@ -1,0 +1,103 @@
+@import "../../base/normalize.css";
+@import "../../modules/navbar/navbar";
+@import "../../components/button";
+
+// Reseteo y estilos globales
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  // border: 1px dotted red;
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+// Estilos de header
+header {
+  height: 100vh;
+  display: flex;
+  position: relative;
+}
+
+// Sección de video en el header
+.header-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+  video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw; /* Fija el ancho al 100% del viewport */
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+    object-fit: cover;
+    z-index: 0;
+  }
+}
+
+// Capa de superposición en el header
+.header-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(69, 74, 88, 0.6);
+  z-index: 0;
+}
+
+// Presentación de contenido dentro del header
+.wrap-presentation {
+  -webkit-box-shadow: 0px 0px 37px 17px rgba(0, 0, 0, 0.46);
+  -moz-box-shadow: 0px 0px 37px 17px rgba(0, 0, 0, 0.46);
+  box-shadow: 0px 0px 37px 17px rgba(0, 0, 0, 0.46);
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  max-width: 1200px;
+  padding: 20px;
+  background: rgb(23, 23, 23);
+  border-radius: 10px;
+  z-index: 1;
+  position: relative;
+
+  h1 {
+    text-align: center;
+    color: rgb(228, 143, 30);
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    // font-size: 4vh;
+    font-size: clamp(1.5rem, 2.5vw, 3rem);
+  }
+
+  p {
+    font-family: Helvetica;
+    text-align: center;
+    color: antiquewhite;
+  }
+  div {
+    text-align: center;
+    padding: 1% 0;
+  }
+}
+
+#sing-in {
+  line-height: 1.5;
+  color: black;
+  padding: 0.4rem;
+  text-align: center;
+}
