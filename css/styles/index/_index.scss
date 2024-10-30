@@ -1,7 +1,3 @@
-@import "../../base/normalize.css";
-@import "../../modules/navbar/navbar";
-@import "../../components/button";
-
 // Reseteo y estilos globales
 * {
   margin: 0;
@@ -37,7 +33,8 @@ header {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100vw; /* Fija el ancho al 100% del viewport */
+    width: 100vw;
+    /* Fija el ancho al 100% del viewport */
     height: 100vh;
     transform: translate(-50%, -50%);
     will-change: transform;
@@ -70,7 +67,7 @@ header {
   width: 95%;
   max-width: 1200px;
   padding: 20px;
-  background: rgb(23, 23, 23);
+  background: rgba(23, 23, 23);
   border-radius: 10px;
   z-index: 1;
   position: relative;
@@ -78,17 +75,17 @@ header {
   h1 {
     text-align: center;
     color: rgb(228, 143, 30);
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-      "Lucida Sans", Arial, sans-serif;
-    // font-size: 4vh;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
     font-size: clamp(1.5rem, 2.5vw, 3rem);
   }
 
   p {
+    font-size: 150%;
     font-family: Helvetica;
     text-align: center;
     color: antiquewhite;
   }
+
   div {
     text-align: center;
     padding: 1% 0;

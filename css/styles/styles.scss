@@ -1,0 +1,12 @@
+// styles.scss
+
+// Importar estilos base
+@import '../base/normalize';
+
+// Importar componentes
+@import '../components/_button';
+@import '../modules/_slider';
+@import '../layouts/_navbar';
+
+// Importar estilos específicos de páginas
+@import '../styles/index/index';
