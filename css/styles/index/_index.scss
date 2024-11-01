@@ -64,10 +64,10 @@ header {
   display: inline-block;
   align-items: center;
   justify-content: center;
-  width: 95%;
-  max-width: 1200px;
+  width: 85%;
+  max-width: 950px;
   padding: 20px;
-  background: rgba(23, 23, 23);
+  background: rgba(23, 23, 23, 0.963);
   border-radius: 10px;
   z-index: 1;
   position: relative;
@@ -75,12 +75,13 @@ header {
   h1 {
     text-align: center;
     color: rgb(228, 143, 30);
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
     font-size: clamp(1.5rem, 2.5vw, 3rem);
   }
 
   p {
-    font-size: 150%;
+    font-size: clamp(13px, 1.4vw, 2rem);
     font-family: Helvetica;
     text-align: center;
     color: antiquewhite;

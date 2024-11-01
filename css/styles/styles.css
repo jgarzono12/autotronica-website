@@ -326,19 +326,18 @@ template {
 
 .slider {
   width: 100%;
-  height: auto;
   margin: auto;
   overflow: hidden;
 }
 .slider .slides {
   display: flex;
   animation: scroll 20s linear infinite;
-  width: 2400px;
+  width: 1800px;
 }
 .slider .slides .slide {
   display: flex;
   align-items: center;
-  width: 200px;
+  width: 150px;
   margin: 5px;
 }
 .slider .slides .slide img {
@@ -351,7 +350,7 @@ template {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-1200px);
+    transform: translateX(-900px);
     /* Cambia según el total de slides */
   }
 }
@@ -539,10 +538,10 @@ header {
   display: inline-block;
   align-items: center;
   justify-content: center;
-  width: 95%;
-  max-width: 1200px;
+  width: 85%;
+  max-width: 950px;
   padding: 20px;
-  background: rgb(23, 23, 23);
+  background: rgba(23, 23, 23, 0.963);
   border-radius: 10px;
   z-index: 1;
   position: relative;
@@ -554,7 +553,7 @@ header {
   font-size: clamp(1.5rem, 2.5vw, 3rem);
 }
 .wrap-presentation p {
-  font-size: 150%;
+  font-size: clamp(13px, 1.4vw, 2rem);
   font-family: Helvetica;
   text-align: center;
   color: antiquewhite;

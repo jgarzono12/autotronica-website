@@ -1,38 +1,37 @@
 // efecto slider para logos
 .slider {
-    width: 100%;
-    height: auto;
-    margin: auto;
-    overflow: hidden;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
 
-    .slides {
-        display: flex;
-        animation: scroll 20s linear infinite;
-        width: calc(200px * 12);
+  .slides {
+    display: flex;
+    animation: scroll 20s linear infinite;
+    width: calc(150px * 12);
 
-        .slide {
-            display: flex;
-            align-items: center;
-            width: 200px;
-            margin: 5px;
+    .slide {
+      display: flex;
+      align-items: center;
+      width: 150px;
+      margin: 5px;
 
-            img {
-                filter: drop-shadow(0px 0px 2px rgba(150, 149, 149, 0.5));
-                width: 100%;
-            }
-        }
+      img {
+        filter: drop-shadow(0px 0px 2px rgba(150, 149, 149, 0.5));
+        width: 100%;
+      }
     }
+  }
 }
 
 @keyframes scroll {
-    0% {
-        -webkit-transform: translate(0);
-        transform: translateX(0);
-    }
+  0% {
+    // -webkit-transform: translate(0);
+    transform: translateX(0);
+  }
 
-    100% {
-        -webkit-transform: translate(calc(-200px *6));
-        transform: translateX(calc(-200px *6));
-        /* Cambia según el total de slides */
-    }
+  100% {
+    // -webkit-transform: translate(calc(-150px * 6));
+    transform: translateX(calc(-150px * 6));
+    /* Cambia según el total de slides */
+  }
 }

@@ -36,7 +36,7 @@ export const initializeNavbar = async (navbarPlaceId, navbarHtmlPath) => {
 
         setNavbarScrollEffect(navbar);
         setNavbarHamColor(navbar, hamMenuButton);
-        touchOverlayExit(overlay, hamMenuButton);
+        touchOverlayExit(overlay, hamMenuButton, navbar);
     } catch (error) {
         console.error(`Error al cargar barra de navegación:\n${error}`);
     }
@@ -89,10 +89,12 @@ function setNavbarHamColor(navbar, hamMenuButton) {
  * const hamMenuElement = document.getElementById('hammenu-button');
  * touchOverlayExit(overlayElement, hamMenuElement);
  */
-function touchOverlayExit(overlay, hamMenuButton) {
+function touchOverlayExit(overlay, hamMenuButton, navbar) {
     overlay.addEventListener("click", () => {
         document.body.style.overflow = "auto"; // Permitir el scroll
         hamMenuButton.checked = false; // Desmarcar el checkbox
         overlay.style.display = "none"; // Ocultar el overlay
+        navbar.style.backgroundColor = hamMenuButton.checked ? "#121212" : window.scrollY >= 10 ? "#121212" : "transparent";
+
     });
 }
