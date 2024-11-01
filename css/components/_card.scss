@@ -1,0 +1,33 @@
+.card {
+  background-color: #ffffff00; // Color de fondo blanco para las tarjetas
+  border-radius: 10px; // Bordes redondeados
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Sombra para profundidad
+  width: 300px;
+  height: auto; // Permite que la altura se ajuste al contenido
+  min-width: 40vh;
+  max-width: 40vh;
+  margin: 1rem; // Margen entre las tarjetas
+  padding: 1rem; // Espacio interno
+  transition: transform 0.3s, box-shadow 0.3s; // Transiciones suaves
+
+  &:hover {
+    transform: translateY(-5px); // Efecto de elevación al pasar el mouse
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); // Sombra más profunda al pasar el mouse
+  }
+
+  div {
+    flex-direction: column;
+    h3 {
+      margin: 0; // Sin margen para el h3
+      padding: 1rem 0; // Espacio arriba y abajo
+      color: #000000; // Color del título
+      font-size: 1.5rem; // Tamaño de fuente
+    }
+  }
+
+  p {
+    color: #666; // Color del texto
+    font-size: 1rem; // Tamaño de fuente
+    line-height: 1.5; // Espaciado entre líneas
+  }
+}

@@ -8,6 +8,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 5%;
+  z-index: 9999;
 
   a {
     #logo {
@@ -81,6 +82,7 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.644);
     display: none;
+    z-index: 9998;
   }
 
   .nav-menu {

@@ -54,9 +54,11 @@ export const initializeNavbar = async (navbarPlaceId, navbarHtmlPath) => {
  */
 function setNavbarScrollEffect(navbar) {
     window.addEventListener("scroll", () => {
-        navbar.style.transition = "background-color 0.6s ease";
+        navbar.style.transition = "background-color 0.6s ease, box-shadow 0.6s ease";
         navbar.style.backgroundColor =
             window.scrollY >= 10 ? "#121212" : "transparent";
+        navbar.style.boxShadow =
+            window.scrollY >= 10 ? "0 2px 10px rgba(0, 0, 0, 0.384)" : "none";
     });
 }
 
