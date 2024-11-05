@@ -1,26 +1,33 @@
 /**
- * Función principal para la implementación de la barra de navegación.
+ * Carga e inicializa la barra de navegación en el sitio web.
  *
- * Esta función carga el contenido HTML de la barra de navegación desde la
- * ruta especificada y lo inserta en el elemento designado. Además, aplica
- * efectos de desplazamiento y maneja el comportamiento del menú hamburguesa.
+ * Esta función se encarga de cargar la barra de navegación desde un archivo HTML
+ * especificado y de insertar su contenido en un elemento del DOM. Además, aplica efectos
+ * de desplazamiento y administra el comportamiento del menú hamburguesa para
+ * dispositivos móviles.
  *
  * @async
- * @param {HTMLElement} navbarPlaceId - Elemento HTML donde se insertará la barra de navegación.
- * @param {string} navbarHtmlPath - Ruta del archivo HTML que contiene el contenido de la barra de navegación.
+ * @param {HTMLElement} navbarPlaceId - Elemento del DOM donde se insertará el contenido de la barra de navegación.
+ * @param {string} navbarHtmlPath - Ruta al archivo HTML que contiene el contenido de la barra de navegación.
  * @returns {Promise<void>} - Promesa que se resuelve cuando la barra de navegación ha sido
  * cargada e insertada correctamente, o se rechaza si ocurre un error durante la carga.
  * @throws {Error} - Lanza un error si la solicitud de recuperación del archivo HTML falla o si la
  * respuesta no es exitosa.
  *
  * @example
- * const navbarElement = document.getElementById('navbar-container');
- * const navbarFilePath = '/path/to/navbar.html';
- * initializeNavbar(navbarElement, navbarFilePath)
+ * const navbarContainer = document.getElementById('navbar-container');
+ * const navbarHtmlFile = '/path/to/navbar.html';
+ * initializeNavbar(navbarContainer, navbarHtmlFile)
  *     .then(() => console.log('Barra de navegación cargada exitosamente.'))
  *     .catch((error) => console.error('Error al inicializar la barra de navegación:', error));
+ *
+ * La función ejecuta los siguientes pasos:
+ * 1. Realiza una solicitud para obtener el contenido HTML de la barra de navegación desde la ruta proporcionada.
+ * 2. Si la solicitud es exitosa, inserta el HTML en el elemento del DOM indicado.
+ * 3. Activa los efectos de desplazamiento (cambio de color y sombras) en la barra de navegación.
+ * 4. Administra el funcionamiento del menú hamburguesa y el cierre del menú mediante una superposición.
  */
-export const initializeNavbar = async (navbarPlaceId, navbarHtmlPath) => {
+export default async (navbarPlaceId, navbarHtmlPath) => {
     try {
         const resultPromise = await fetch(navbarHtmlPath);
         if (!resultPromise.ok) {

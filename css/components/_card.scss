@@ -1,22 +1,28 @@
 .card {
   background-color: #ffffff00; // Color de fondo blanco para las tarjetas
   border-radius: 10px; // Bordes redondeados
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Sombra para profundidad
-  width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); // Sombra para profundidad
+  width: 100%; // Ancho completo para la tarjeta
+  max-width: 300px; // Ancho máximo para mantener la tarjeta manejable
   height: auto; // Permite que la altura se ajuste al contenido
-  min-width: 40vh;
-  max-width: 40vh;
   margin: 1rem; // Margen entre las tarjetas
   padding: 1rem; // Espacio interno
   transition: transform 0.3s, box-shadow 0.3s; // Transiciones suaves
-
-  &:hover {
-    transform: translateY(-5px); // Efecto de elevación al pasar el mouse
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); // Sombra más profunda al pasar el mouse
-  }
+  display: flex; // Usar flexbox para organizar el contenido
+  flex-direction: column; // Organizar los elementos en columna
 
   div {
-    flex-direction: column;
+    display: flex; // Usar flexbox en el contenedor de la imagen y el título
+    flex-direction: column; // Alinear en columna
+    align-items: center; // Centrar horizontalmente
+    flex-grow: 1; // Permitir que el contenedor crezca para igualar alturas
+
+    img {
+      width: 100%; // Ancho completo del contenedor
+      border-radius: 10px; // Bordes redondeados en la imagen
+      object-fit: cover; // Cubrir el área del contenedor sin distorsionar
+    }
+
     h3 {
       margin: 0; // Sin margen para el h3
       padding: 1rem 0; // Espacio arriba y abajo

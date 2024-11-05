@@ -1,0 +1,23 @@
+.elementor-divider {
+  display: flex; // Usamos flexbox para alinear los elementos
+  align-items: center; // Alineación vertical centrada
+  margin: 0 1rem; // Espacio arriba y abajo
+
+  .elementor-divider-separator {
+    flex-grow: 1; // Permite que la línea crezca
+    height: 3px; // Altura de la línea
+    background-color: #292929; // Color de la línea
+    margin: 0.5rem; // Espacio lateral
+    border-radius: 2px; // Redondeo suave de las esquinas
+  }
+}
+
+/**
+/* Implementacion en HTML
+/*
+/* <div class="elementor-divider">
+/*    <span class="elementor-divider-separator"></span>
+/*    <span>Texto del Divisor</span>
+/*    <span class="elementor-divider-separator"></span>
+/* </div>
+**/
