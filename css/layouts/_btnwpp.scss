@@ -1,0 +1,54 @@
+.btn-wpp {
+  position: fixed; // Hacer que el botón flote en la pantalla
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  bottom: 30px;
+  right: 30px;
+  background: #00bb2d; // Fondo verde de WhatsApp
+  border-radius: 50%; // Hacer el botón redondo
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); // Sombra suave y difusa
+  transition: background-color 0.3s ease, transform 0.3s ease; // Animación suave
+  z-index: 9997;
+
+  &:hover {
+    background-color: #009c1f; // Cambio de color al pasar el ratón
+    transform: scale(1.1); // Aumento de tamaño del botón
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+    filter: invert(100%) brightness(200%) contrast(100%);
+  }
+
+  @media (max-width: 768px) {
+    width: 45px;
+    height: 45px;
+    bottom: 20px;
+    right: 20px;
+
+    img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
+/**
+ * Implementación en HTML
+ *
+ * <a href="https://wa.me/573115421001" target="_blank" class="btn-wpp">
+ *     <img src="/img/icons/whatsapp.svg" alt="botón whatsapp">
+ * </a>
+ *
+ * Este botón de WhatsApp está diseñado para ser un acceso directo que permite a los usuarios comunicarse rápidamente.
+ * El ícono se muestra como una imagen SVG y puede ser estilizado con CSS para cambiar su color y tamaño según las necesidades.
+ * La clase 'btn-wpp' aplica estilos para la posición, tamaño, color de fondo y efectos visuales.
+ * 
+ * Se recomienda mantener el enlace actualizado con el número de contacto deseado.
+ **/
