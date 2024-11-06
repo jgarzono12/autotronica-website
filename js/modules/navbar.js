@@ -44,6 +44,8 @@ export default async (navbarPlaceId, navbarHtmlPath) => {
         setNavbarScrollEffect(navbar);
         setNavbarHamColor(navbar, hamMenuButton);
         touchOverlayExit(overlay, hamMenuButton, navbar);
+        adjustScrollForNavbar(navbar);
+
     } catch (error) {
         console.error(`Error al cargar barra de navegación:\n${error}`);
     }
@@ -107,3 +109,49 @@ function touchOverlayExit(overlay, hamMenuButton, navbar) {
 
     });
 }
+
+/**
+ * Ajusta el desplazamiento de la página al hacer clic en un enlace con `href="#<id>"`, 
+ * de forma que la sección se desplace correctamente sin quedar oculta debajo del navbar.
+ * 
+ * @param {HTMLElement} navbar - El elemento del navbar que se utilizará para calcular su altura.
+ * La altura se toma en cuenta para ajustar el desplazamiento de las secciones al hacer scroll.
+ * 
+ * @example
+ * // Llama a la función pasando el elemento del navbar
+ * const navbar = document.querySelector('#navbar');
+ * adjustScrollForNavbar(navbar);
+ */
+function adjustScrollForNavbar(navbar) {
+    // Obtén todos los enlaces con href="#"
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();  // Evita el comportamiento por defecto del enlace
+
+            // Obtiene el destino del enlace (el id de la sección a la que se hará scroll)
+            const targetId = this.getAttribute("href").substring(1);  // Elimina el "#" para obtener el id
+            const target = document.getElementById(targetId);
+
+            if (target) {
+                // Obtiene la altura actual del navbar
+                const navbarHeight = navbar.offsetHeight;
+
+                // Aumenta el desplazamiento ajustado por un pequeño margen (10px o más)
+                const targetPosition = target.offsetTop - navbarHeight;  // Resta la altura del navbar al desplazamiento
+
+                // Realiza el desplazamiento suave hasta la sección ajustada
+                window.scrollTo({
+                    top: targetPosition,  // Posición ajustada
+                    behavior: 'smooth'  // Desplazamiento suave
+                });
+            }
+        });
+    });
+}
+
+
+
+
+
+
+

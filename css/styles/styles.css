@@ -463,6 +463,63 @@ template {
  * 
  * Se recomienda mantener el enlace actualizado con el número de contacto deseado.
  **/
+.arrow-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  min-height: 150px;
+}
+.arrow-container .arrow {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-left: 3rem solid transparent;
+  border-right: 3rem solid transparent;
+  border-top: 1.2rem solid rgba(255, 255, 255, 0.0196078431);
+  align-items: flex-end;
+  animation: move-arrow 2s ease-in-out infinite, color-change 2s ease-in-out infinite;
+  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.507));
+  transition: all 0.3s ease;
+}
+@keyframes move-arrow {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.5rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes color-change {
+  0% {
+    border-top: 1.2rem solid rgba(255, 255, 255, 0.0196078431);
+  }
+  50% {
+    border-top: 1.2rem solid #ffffff;
+  }
+  100% {
+    border-top: 1.2rem solid rgba(255, 255, 255, 0.0196078431);
+  }
+}
+.arrow-container:hover .arrow {
+  transform: scale(1.05) translateY(-0.1rem);
+  border-top-color: rgb(255, 179, 0);
+  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.507));
+  transition: transform 0.6s ease, filter 0.6s ease, border-top-color 0.6s ease;
+  animation: none;
+}
+
+/**
+/* Implementation:
+/* <a href="#" class="arrow-container">
+/*  <div class="arrow"></div>
+/* </a>
+**/
 * {
   margin: 0;
   padding: 0;
@@ -506,8 +563,9 @@ header {
 
 .header-overlay {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   position: absolute;
   margin: 0;
   width: 100%;
@@ -515,11 +573,11 @@ header {
   background-color: rgba(69, 74, 88, 0.6);
   z-index: 0;
 }
-
-.wrap-presentation {
+.header-overlay .wrap-presentation {
   box-shadow: 0px 0px 37px 17px rgba(0, 0, 0, 0.46);
   display: inline-block;
   align-items: center;
+  margin: auto auto;
   justify-content: center;
   width: 85%;
   max-width: 950px;
@@ -528,20 +586,21 @@ header {
   border-radius: 10px;
   z-index: 1;
   position: relative;
+  margin-top: 20vh;
 }
-.wrap-presentation h1 {
+.header-overlay .wrap-presentation h1 {
   text-align: center;
   color: rgb(228, 143, 30);
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   font-size: clamp(1.5rem, 2.5vw, 3rem);
 }
-.wrap-presentation p {
+.header-overlay .wrap-presentation p {
   font-size: clamp(13px, 1.4vw, 2rem);
   font-family: Helvetica;
   text-align: center;
   color: antiquewhite;
 }
-.wrap-presentation div {
+.header-overlay .wrap-presentation div {
   text-align: center;
   padding: 1% 0;
 }

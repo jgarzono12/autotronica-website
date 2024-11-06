@@ -1,0 +1,75 @@
+// Variables para el tamaño base y colores
+$base: 0.6rem;
+$arrow-width: $base * 5;
+$arrow-height: $base * 2;
+$arrow-color: #ffffff05;
+$arrow-color-hover: #ffffff; // Color para hover
+
+// Estilo para el contenedor de la flecha (solo para el área de clic)
+.arrow-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: auto; // Asegura que ocupe el espacio disponible
+  height: auto;
+  min-height: 150px;
+
+  // Estilo para la flecha
+  .arrow {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-left: $arrow-width solid transparent;
+    border-right: $arrow-width solid transparent;
+    border-top: $arrow-height solid $arrow-color;
+    align-items: flex-end;
+    animation: move-arrow 2s ease-in-out infinite,
+      color-change 2s ease-in-out infinite;
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.507)); // Sombra sutil
+    transition: all 0.3s ease; // Transición suave para el cambio en hover
+  }
+
+  // Animación para mover la flecha
+  @keyframes move-arrow {
+    0% {
+      transform: translateY(0); // Comienza en la posición original
+    }
+    50% {
+      transform: translateY(-1.5rem); // Se mueve hacia abajo un poco
+    }
+    100% {
+      transform: translateY(0); // Regresa a la posición original
+    }
+  }
+
+  // Animación para el cambio de color de la flecha (rojo y blanco)
+  @keyframes color-change {
+    0% {
+      border-top: $arrow-height solid $arrow-color; // Color inicial (blanco)
+    }
+    50% {
+      border-top: $arrow-height solid $arrow-color-hover; // Color rojo
+    }
+    100% {
+      border-top: $arrow-height solid $arrow-color; // Vuelve a blanco
+    }
+  }
+
+  // Efecto al pasar el mouse por encima
+  &:hover .arrow {
+    transform: scale(1.05) translateY(-0.1rem); // Muy pequeño aumento de tamaño y desplazamiento
+    border-top-color: rgb(255, 179, 0); // Cambia el color de la flecha en hover
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.507)); // Sombra más sutil
+    transition: transform 0.6s ease, filter 0.6s ease,
+      border-top-color 0.6s ease; // Transición más suave y lenta
+    animation: none; // Desactiva las animaciones de movimiento y color-change en hover
+  }
+}
+
+/**
+/* Implementation:
+/* <a href="#" class="arrow-container">
+/*  <div class="arrow"></div>
+/* </a>
+**/
