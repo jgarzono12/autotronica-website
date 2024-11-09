@@ -13,7 +13,7 @@ $arrow-color-hover: #ffffff; // Color para hover
   cursor: pointer;
   width: auto; // Asegura que ocupe el espacio disponible
   height: auto;
-  min-height: 150px;
+  min-height: 60px;
 
   // Estilo para la flecha
   .arrow {
@@ -36,7 +36,7 @@ $arrow-color-hover: #ffffff; // Color para hover
       transform: translateY(0); // Comienza en la posición original
     }
     50% {
-      transform: translateY(-1.5rem); // Se mueve hacia abajo un poco
+      transform: translateY(-1rem); // Se mueve hacia abajo un poco
     }
     100% {
       transform: translateY(0); // Regresa a la posición original
@@ -64,6 +64,12 @@ $arrow-color-hover: #ffffff; // Color para hover
     transition: transform 0.6s ease, filter 0.6s ease,
       border-top-color 0.6s ease; // Transición más suave y lenta
     animation: none; // Desactiva las animaciones de movimiento y color-change en hover
+  }
+}
+
+@media (max-width: 768px) {
+  .arrow-container {
+    min-height: 200px;
   }
 }
 

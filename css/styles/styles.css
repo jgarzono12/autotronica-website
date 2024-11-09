@@ -392,7 +392,6 @@ template {
 .elementor-divider {
   display: flex;
   align-items: center;
-  margin: 0 1rem;
 }
 .elementor-divider .elementor-divider-separator {
   flex-grow: 1;
@@ -470,7 +469,7 @@ template {
   cursor: pointer;
   width: auto;
   height: auto;
-  min-height: 150px;
+  min-height: 60px;
 }
 .arrow-container .arrow {
   position: relative;
@@ -489,7 +488,7 @@ template {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-1.5rem);
+    transform: translateY(-1rem);
   }
   100% {
     transform: translateY(0);
@@ -514,6 +513,11 @@ template {
   animation: none;
 }
 
+@media (max-width: 768px) {
+  .arrow-container {
+    min-height: 200px;
+  }
+}
 /**
 /* Implementation:
 /* <a href="#" class="arrow-container">
@@ -525,6 +529,7 @@ template {
   padding: 0;
   box-sizing: border-box;
   list-style: none;
+  border: 1px dotted red;
 }
 
 body {
