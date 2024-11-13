@@ -1,0 +1,155 @@
+// Variables
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$transition-duration: 0.3s;
+
+// Mixins
+@mixin tablet {
+    @media (min-width: #{$breakpoint-tablet}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$breakpoint-desktop}) {
+        @content;
+    }
+}
+
+@mixin hover-opacity {
+    color: #212121;
+    text-decoration: none;
+    transition: opacity $transition-duration ease, transform $transition-duration ease;
+
+    &:hover {
+        opacity: 0.8;
+        transform: translateY(-5px);
+    }
+}
+
+.footer {
+
+    font-family: Arial,
+        sans-serif;
+    padding: 1rem;
+
+    &__container {
+        display: grid;
+        gap: 1rem;
+        max-width: auto;
+        margin: 0 auto;
+    }
+
+    &__section {
+        padding: 1rem;
+        display: flex;
+
+        h3 {
+            margin-top: 0;
+        }
+    }
+
+    &__map {
+        grid-column: 1 / -1; // Asegura que el mapa ocupe toda la anchura
+
+        flex-direction: column;
+        align-items: center;
+
+        .map-container {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+            max-height: 500px;
+
+            iframe {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+            }
+        }
+    }
+
+    &__contact {
+
+        flex-direction: column;
+        align-items: center;
+        color: #212121;
+
+
+        a {
+            @include hover-opacity;
+            vertical-align: middle;
+            display: flex;
+            align-items: center;
+
+            img {
+                height: 33px;
+                width: auto;
+                margin: 0.3rem;
+
+            }
+
+        }
+    }
+
+    &__siguenos {
+        color: black;
+
+        flex-direction: column;
+        align-items: center;
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+
+            li {
+                img {
+                    height: 33px;
+                    width: auto;
+                    margin: 0.3rem;
+                    @include hover-opacity;
+                }
+            }
+
+        }
+    }
+}
+
+// Tablet styles
+@include tablet {
+    .footer {
+        &__container {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-areas:
+                "map map"
+                "contact social";
+        }
+
+        &__map {
+            grid-area: map;
+        }
+
+        &__contact {
+            grid-area: contact;
+        }
+
+        &__social {
+            grid-area: social;
+        }
+    }
+}
+
+// Desktop styles
+@include desktop {
+    .footer {
+        &__container {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
