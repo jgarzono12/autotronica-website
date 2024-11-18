@@ -1,6 +1,7 @@
 @import "../components/button";
 
 #navbar {
+  box-sizing: border-box;
   position: fixed;
   margin: 0;
   width: 100%;
@@ -9,6 +10,21 @@
   align-items: center;
   padding: 0 5%;
   z-index: 9999;
+
+  .login-button{
+    text-decoration: none;
+    border-radius: 7px;
+    font-family: Helvetica;
+    font-weight: bold;
+    color: black;
+    background-color: rgb(255, 179, 0);
+    text-align: center;
+    padding: 1% 3%;
+    &:hover{
+        background-color: aliceblue;
+    }
+    padding: 1ch;
+}
 
   a {
     #logo {
