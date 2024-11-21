@@ -179,58 +179,244 @@ template {
   display: none;
 }
 
-.button-style {
-  text-decoration: none;
-  border-radius: 7px;
-  font-family: Helvetica;
-  font-weight: bold;
-  color: black;
-  background-color: rgb(255, 179, 0);
-  text-align: center;
-  padding: 1% 3%;
-  padding: 1ch;
+:root {
+  --primary-color: #FFA000;
+  --hover-bg-start: #efa119;
+  --hover-bg-end: #fbcc41;
+  --box-shadow-inset: inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
+  --box-shadow-outer: 7px 7px 20px 0px rgba(0, 0, 0, .1), 4px 4px 5px 0px rgba(0, 0, 0, .1);
+  --font-family: "Lato", sans-serif;
+  --font-weight: 500;
+  --btn-height: 40px;
+  --btn-padding: 0 15px;
 }
-.button-style:hover {
+
+.frame {
+  text-align: center;
+}
+.frame .custom-btn {
+  text-decoration: none;
+  width: auto;
+  height: var(--btn-height);
+  padding: var(--btn-padding);
+  color: #fff;
+  border-radius: 5px;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--box-shadow-inset), var(--box-shadow-outer);
+  outline: none;
+  text-align: center;
+}
+.frame .custom-btn.btn-1 {
+  background: var(--primary-color);
+  border: none;
+  position: relative;
+  z-index: 1;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
+.frame .custom-btn.btn-1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 5px;
+  background-color: var(--hover-bg-start);
+  background-image: linear-gradient(315deg, var(--hover-bg-start) 0%, var(--hover-bg-end) 74%);
+  box-shadow: var(--box-shadow-inset), var(--box-shadow-outer);
+}
+.frame .custom-btn.btn-1:hover {
+  color: #000;
+  transform: scale(1.02);
+}
+.frame .custom-btn.btn-1:hover::after {
+  top: auto;
+  bottom: 0;
+  height: 100%;
+}
+.frame .custom-btn.btn-1:active {
+  top: 2px;
+  transform: scale(0.98);
+}
+
+:root {
+  /* Colors */
+  --brand-color: hsl(46, 100%, 50%);
+  --black: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 100%);
+  /* Fonts */
+  --font-title: sans-serif;
+  --font-text: sans-serif;
+}
+
+/* CARD COMPONENT */
+.card {
+  align-items: center;
+  margin: auto;
+  display: grid;
+  margin: 0.5rem auto;
+  width: 80vw;
+  max-width: 21.875rem;
+  height: 28.125rem;
+  overflow: hidden;
+  border-radius: 0.625rem;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.card > * {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.card__background {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 100%;
+  height: 100%;
+}
+
+.card__content {
+  --flow-space: 0.9375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: flex-end;
+  height: 55%;
+  padding: 12% 1.25rem 1.875rem;
+  background: linear-gradient(180deg, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.5) 10%, hsla(0, 0%, 0%, 0.95) 100%);
+}
+
+.card__content--container {
+  --flow-space: 1.25rem;
+}
+
+.card__description {
+  margin-top: 16px;
+}
+
+.card__title {
+  position: relative;
+  width: fit-content;
+  width: -moz-fit-content; /* Prefijo necesario para Firefox  */
+}
+
+.card__title::after {
+  content: "";
+  position: absolute;
+  height: 0.3125rem;
+  width: calc(100% + 1.25rem);
+  bottom: -0.75rem;
+  left: -1.25rem;
+  background-color: var(--brand-color);
+}
+
+.card__button {
+  text-decoration: none;
+  padding: 0.75em 1.6em;
+  width: fit-content;
+  width: -moz-fit-content; /* Prefijo necesario para Firefox  */
+  font-variant: small-caps;
+  font-weight: bold;
+  border-radius: 0.45em;
+  border: none;
+  background-color: var(--brand-color);
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  color: var(--black);
+}
+.card__button:hover {
   background-color: aliceblue;
 }
 
-.card {
-  background-color: rgba(255, 255, 255, 0);
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  margin: 1rem;
-  padding: 1rem;
-  transition: transform 0.3s, box-shadow 0.3s;
-  display: flex;
-  flex-direction: column;
-}
-.card div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-grow: 1;
-}
-.card div img {
-  width: 100%;
-  border-radius: 10px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.card div h3 {
-  margin: 0;
-  padding: 1rem 0;
-  color: #000000;
-  font-size: 1.5rem;
-}
-.card p {
-  color: #666;
-  font-size: 1rem;
-  line-height: 1.5;
+.card__button:focus {
+  outline: 2px solid black;
+  outline-offset: -5px;
 }
 
+@media (any-hover: hover) and (any-pointer: fine) {
+  .card__content {
+    transform: translateY(62%);
+    transition: transform 500ms ease-out;
+    transition-delay: 500ms;
+  }
+  .card__title::after {
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity 1000ms ease-in, transform 500ms ease-out;
+    transition-delay: 500ms;
+    transform-origin: right;
+  }
+  .card__background {
+    transition: transform 500ms ease-in;
+  }
+  .card__content--container > :not(.card__title),
+  .card__button {
+    opacity: 0;
+    transition: transform 500ms ease-out, opacity 500ms ease-out;
+  }
+  .card:hover,
+  .card:focus-within {
+    transform: scale(1.05);
+    transition: transform 500ms ease-in;
+  }
+  .card:hover .card__content,
+  .card:focus-within .card__content {
+    transform: translateY(0);
+    transition: transform 500ms ease-in;
+  }
+  .card:focus-within .card__content {
+    transition-duration: 0ms;
+  }
+  .card:hover .card__background,
+  .card:focus-within .card__background {
+    transform: scale(1.3);
+  }
+  .card:hover .card__content--container > :not(.card__title),
+  .card:hover .card__button,
+  .card:focus-within .card__content--container > :not(.card__title),
+  .card:focus-within .card__button {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+    transition-delay: 1000ms;
+  }
+  .card:hover .card__title::after,
+  .card:focus-within .card__title::after {
+    opacity: 1;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: opacity 500ms ease-in, transform 500ms ease-in;
+    transition-delay: 500ms;
+  }
+}
+/** <article class="card">
+/*                    <img
+/*                      class="card__background"
+/*                      src="img/images/ecu_1.png"
+/*                      alt="Photo of Cartagena's cathedral at the background and some colonial style houses"
+/*                      width="1920"
+/*                      height="2193"
+/*                    />
+/*                    <div class="card__content | flow">
+/*                      <div class="card__content--container | flow">
+/*                        <h3 class="card__title">Colombia</h3>
+/*                        <p class="card__description">
+/*                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum in
+/*                          labore laudantium deserunt fugiat numquam.
+/*                        </p>
+/*                      </div>
+/*                      <button class="card__button">Read more</button>
+/*                    </div>
+/* </article>
+**/
 .slider {
   width: 100%;
   margin: auto;
@@ -261,7 +447,87 @@ template {
     /* Cambia según el total de slides */
   }
 }
-.button-style {
+:root {
+  --primary-color: #FFA000;
+  --hover-bg-start: #efa119;
+  --hover-bg-end: #fbcc41;
+  --box-shadow-inset: inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
+  --box-shadow-outer: 7px 7px 20px 0px rgba(0, 0, 0, .1), 4px 4px 5px 0px rgba(0, 0, 0, .1);
+  --font-family: "Lato", sans-serif;
+  --font-weight: 500;
+  --btn-height: 40px;
+  --btn-padding: 0 15px;
+}
+
+.frame {
+  text-align: center;
+}
+.frame .custom-btn {
+  text-decoration: none;
+  width: auto;
+  height: var(--btn-height);
+  padding: var(--btn-padding);
+  color: #fff;
+  border-radius: 5px;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--box-shadow-inset), var(--box-shadow-outer);
+  outline: none;
+  text-align: center;
+}
+.frame .custom-btn.btn-1 {
+  background: var(--primary-color);
+  border: none;
+  position: relative;
+  z-index: 1;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
+.frame .custom-btn.btn-1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 5px;
+  background-color: var(--hover-bg-start);
+  background-image: linear-gradient(315deg, var(--hover-bg-start) 0%, var(--hover-bg-end) 74%);
+  box-shadow: var(--box-shadow-inset), var(--box-shadow-outer);
+}
+.frame .custom-btn.btn-1:hover {
+  color: #000;
+  transform: scale(1.02);
+}
+.frame .custom-btn.btn-1:hover::after {
+  top: auto;
+  bottom: 0;
+  height: 100%;
+}
+.frame .custom-btn.btn-1:active {
+  top: 2px;
+  transform: scale(0.98);
+}
+
+#navbar {
+  box-sizing: border-box;
+  position: fixed;
+  margin: 0;
+  width: 100%;
+  font-family: Helvetica;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  z-index: 9999;
+}
+#navbar .login-button {
   text-decoration: none;
   border-radius: 7px;
   font-family: Helvetica;
@@ -272,19 +538,8 @@ template {
   padding: 1% 3%;
   padding: 1ch;
 }
-.button-style:hover {
+#navbar .login-button:hover {
   background-color: aliceblue;
-}
-
-#navbar {
-  position: fixed;
-  margin: 0;
-  width: 100%;
-  font-family: Helvetica;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 5%;
-  z-index: 9999;
 }
 #navbar a #logo {
   margin: 4px;
@@ -397,7 +652,7 @@ template {
 .elementor-divider .elementor-divider-separator {
   flex-grow: 1;
   height: 3px;
-  background-color: #292929;
+  background-color: #FFA000;
   margin: 0.5rem;
   border-radius: 2px;
 }
@@ -838,8 +1093,10 @@ main {
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   list-style: none;
+}
+* h2, * h3, * p {
+  font-family: "Helvetica";
 }
 
 body {
@@ -927,6 +1184,14 @@ header {
   text-align: center;
 }
 
+main #services-section {
+  max-width: 1600px;
+  min-width: none;
+  margin: 0 auto;
+}
+main #services-section .frame {
+  margin: 50px auto;
+}
 main #services-section h2 {
   font-family: "Helvetica";
   font-size: 3rem;
@@ -946,39 +1211,16 @@ main #services-section h2 {
 }
 main #services-section .services {
   position: relative;
-  justify-content: space-around;
+  justify-content: space-evenly;
   display: flex;
   flex-direction: row;
-  text-align: center;
   flex-wrap: wrap;
 }
-main #services-section .services a {
-  text-decoration: none; /* Elimina el subrayado del enlace */
-  color: inherit; /* Hereda el color del texto del contenedor */
-  border-radius: 10px;
-  margin: 1rem;
-  width: 100%;
-  max-width: 300px;
-  height: auto;
+main #services-section .services h3 {
+  font-size: 1.3rem;
+  font-weight: 790;
+  color: aliceblue;
 }
-main #services-section .services a article {
-  background-color: rgb(228, 143, 30);
-  margin: 0;
-  width: 100%;
-  height: 100%;
-}
-main #services-section .services a article:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
-}
-main #services-section .services a article img {
-  height: 180px;
-}
-main #services-section .services a article h3 {
-  font-size: clamp(16px, 1.4vw, 2rem);
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  color: rgb(0, 0, 0);
-}
-main #services-section .services a article p {
-  color: #000000;
+main #services-section .services p {
+  color: aliceblue;
 }/*# sourceMappingURL=styles.css.map */

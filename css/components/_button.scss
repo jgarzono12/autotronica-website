@@ -1,14 +1,77 @@
-.button-style{
-    text-decoration: none;
-    border-radius: 7px;
-    font-family: Helvetica;
-    font-weight: bold;
-    color: black;
-    background-color: rgb(255, 179, 0);
-    text-align: center;
-    padding: 1% 3%;
-    &:hover{
-        background-color: aliceblue;
+:root {
+    --primary-color: #FFA000;
+    --hover-bg-start: #efa119;
+    --hover-bg-end: #fbcc41;
+    --box-shadow-inset: inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
+    --box-shadow-outer: 7px 7px 20px 0px rgba(0, 0, 0, .1), 4px 4px 5px 0px rgba(0, 0, 0, .1);
+    --font-family: 'Lato', sans-serif;
+    --font-weight: 500;
+    --btn-height: 40px;
+    --btn-padding: 0 15px;
+}
+
+.frame {
+    text-align: center; // Centra el contenido de .frame
+    .custom-btn {
+        text-decoration: none;
+        width: auto;
+        height: var(--btn-height);
+        padding: var(--btn-padding);
+        color: #fff;
+        border-radius: 5px;
+        font-family: var(--font-family);
+        font-weight: var(--font-weight);
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease; // Transición para suavizar los efectos
+        display: inline-flex; // Usamos flexbox para centrar el contenido
+        justify-content: center; // Centra el texto horizontalmente
+        align-items: center; // Centra el texto verticalmente
+        box-shadow: var(--box-shadow-inset), var(--box-shadow-outer);
+        outline: none;
+        text-align: center; // Asegura que el texto esté centrado
+
+        // Estilos para el botón 1
+        &.btn-1 {
+            background: var(--primary-color);
+            border: none;
+            position: relative;
+            z-index: 1;
+            color: rgb(0, 0, 0);
+            font-weight: 600;
+
+            // Pseudo-elemento ::after
+            &::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 0;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                border-radius: 5px;
+                background-color: var(--hover-bg-start);
+                background-image: linear-gradient(315deg, var(--hover-bg-start) 0%, var(--hover-bg-end) 74%);
+                box-shadow: var(--box-shadow-inset), var(--box-shadow-outer);
+            }
+
+            // Estilo cuando se pasa el mouse (hover)
+            &:hover {
+                color: #000;
+                transform: scale(1.02   ); // Efecto de aumento (escala)
+                
+                &::after {
+                    top: auto;
+                    bottom: 0;
+                    height: 100%;
+                }
+            }
+
+            // Estilo cuando el botón está activo (active)
+            &:active {
+                top: 2px;
+                transform: scale(0.98); // Hace que el botón se reduzca ligeramente al hacer clic
+            }
+        }
     }
-    padding: 1ch;
 }
